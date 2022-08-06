@@ -20,7 +20,7 @@ export const Cola = () => {
                                         Escritorio: 5
                                     </div>
                                 </div>
-                                <hr/>
+                                <hr />
                             </div>
                             <div>
                                 <h2>No. 33</h2>
@@ -56,48 +56,65 @@ export const Cola = () => {
                             <span className="fw-bold p-1">Historial</span>
                             <hr className="w-25" />
                         </div>
-                        <div>
-                            <h2>Ticket No. 33</h2>
+                        <ul style={{ listStyle: "none" }}>
+                            <li>
+                                <h2>Ticket No. 33</h2>
 
-                            <div className="d-flex justify-content-between">
-                                <p>
-                                    Agente:{" "}
-                                    <span className="bg-success p-1 rounded">36</span>
-                                </p>
-                                <p>
-                                    En el escritorio: <span className=" bg-danger p-1 rounded">36</span>
-                                </p>
-                            </div>
-                            <hr />
-                        </div>
-                        <div>
-                            <h2>Ticket No. 33</h2>
+                                <div className="d-flex justify-content-between">
+                                    <p>
+                                        Agente:{" "}
+                                        <span className="bg-success p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                    <p>
+                                        En el escritorio:{" "}
+                                        <span className=" bg-danger p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                </div>
+                                <hr />
+                            </li>
+                            <li>
+                                <h2>Ticket No. 33</h2>
 
-                            <div className="d-flex justify-content-between">
-                                <p>
-                                    Agente:{" "}
-                                    <span className="bg-success p-1 rounded">36</span>
-                                </p>
-                                <p>
-                                    En el escritorio: <span className=" bg-danger p-1 rounded">36</span>
-                                </p>
-                            </div>
-                            <hr />
-                        </div>
-                        <div>
-                            <h2>Ticket No. 33</h2>
+                                <div className="d-flex justify-content-between">
+                                    <p>
+                                        Agente:{" "}
+                                        <span className="bg-success p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                    <p>
+                                        En el escritorio:{" "}
+                                        <span className=" bg-danger p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                </div>
+                                <hr />
+                            </li>
+                            <li>
+                                <h2>Ticket No. 33</h2>
 
-                            <div className="d-flex justify-content-between">
-                                <p>
-                                    Agente:{" "}
-                                    <span className="bg-success p-1 rounded">36</span>
-                                </p>
-                                <p>
-                                    En el escritorio: <span className=" bg-danger p-1 rounded">36</span>
-                                </p>
-                            </div>
-                            <hr />
-                        </div>
+                                <div className="d-flex justify-content-between">
+                                    <p>
+                                        Agente:{" "}
+                                        <span className="bg-success p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                    <p>
+                                        En el escritorio:{" "}
+                                        <span className=" bg-danger p-1 rounded">
+                                            36
+                                        </span>
+                                    </p>
+                                </div>
+                                <hr />
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
