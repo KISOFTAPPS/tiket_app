@@ -1,13 +1,12 @@
-import { SideNavBar } from "./";
+import { SideNavBar, Footer } from "./";
 export const Layout = ({ children }) => {
     return (
         <>
-            <div className="d-flex">
-                <SideNavBar/>
-                <main>
-                    <section>{children}</section>
-                </main>
-            </div>
+            <main className="d-flex p-0 m-0 bg-dark">
+                <SideNavBar />
+                {children}
+            </main>
+            <Footer />
         </>
     );
 };
