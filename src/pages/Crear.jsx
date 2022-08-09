@@ -2,20 +2,15 @@ import React from "react";
 
 export const Crear = () => {
     return (
-        <section className="w-100 bg-light rounded-start p-4">
-            <div className="container bg-white h-100 shadow rounded text-center pt-5">
-                <h3>Presione el boton para un nuevo ticket</h3>
-                <button className="btn btn-primary">Nuevo ticket</button>
-                <hr />
+        <div className="flex flex-col items-center space-y-4">
+            <h3>Presione el boton para un nuevo ticket</h3>
+            <button className="rounded bg-blue-900 active:bg-blue-400 p-1 text-white font-medium duration-200 shadow-lg">Nuevo ticket</button>
+            <hr className="w-full"/>
 
-                <p className="mt-5">Su numero</p>
-                <span
-                    className="display-1 fw-bolder"
-                    style={{ color: "green" }}
-                >
-                    55
-                </span>
-            </div>
-        </section>
+            <p className="font-medium">Su numero</p>
+            <span className="text-green-700 font-medium text-7xl">
+                55
+            </span>
+        </div>
     );
 };

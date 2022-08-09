@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     BrowserRouter as Router,
     Routes,
@@ -8,8 +8,15 @@ import {
 } from "react-router-dom";
 import { Layout } from "../layout";
 import { Cola, Crear, Escritorio, Ingresar } from "../pages";
+import { useAuthStore } from "../hooks/useAuthStore";
 
 const RouterApp = () => {
+    const { isAuthenticated, chequinAuth } = useAuthStore();
+
+    useEffect(() => {
+        chequinAuth();
+    }, []);
+
     return (
         <Router>
             <Routes>
@@ -21,11 +28,45 @@ const RouterApp = () => {
                         </Layout>
                     }
                 >
-                    <Route path="ingresar" element={<Ingresar />} />
-                    <Route path="cola" element={<Cola />} />
+                    <Route
+                        path="ingresar"
+                        element={
+                            isAuthenticated ? (
+                                <Navigate to="/escritorio" />
+                            ) : (
+                                <Ingresar />
+                            )
+                        }
+                    />
+                    <Route
+                        path="cola"
+                        element={
+                            !isAuthenticated ? (
+                                <Navigate to="ingresar" />
+                            ) : (
+                                <Cola />
+                            )
+                        }
+                    />
                     <Route path="crear" element={<Crear />} />
-                    <Route path="escritorio" element={<Escritorio />} />
-                    <Route path="*" element={<Navigate to="ingresar" />} />
+                    <Route
+                        path="escritorio"
+                        element={
+                            !isAuthenticated ? (
+                                <Navigate to="ingresar" />
+                            ) : (
+                                <Escritorio />
+                            )
+                        }
+                    />
+                    <Route
+                        path="*"
+                        element={
+                            <Navigate
+                                to={isAuthenticated ? "escritorio" : "ingresar"}
+                            />
+                        }
+                    />
                 </Route>
             </Routes>
         </Router>

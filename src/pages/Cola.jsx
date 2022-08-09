@@ -2,122 +2,82 @@ import React from "react";
 
 export const Cola = () => {
     return (
-        <section className="w-100 bg-light rounded-start p-4">
-            <div className="container bg-white h-100 shadow rounded pt-5">
-                <div className="row p-1">
-                    <div className="col-8">
-                        <div>
-                            <h1>Atendiendo al cliente</h1>
-                            <hr />
-                            <div>
-                                <h2>No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <div className="bg-danger p-1 rounded-pill">
-                                        karim sabag
-                                    </div>
-                                    <div className="bg-success p-1 rounded-pill">
-                                        Escritorio: 5
-                                    </div>
-                                </div>
-                                <hr />
-                            </div>
-                            <div>
-                                <h2>No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <div className="bg-danger p-1 rounded-pill">
-                                        karim sabag
-                                    </div>
-                                    <div className="bg-success p-1 rounded-pill">
-                                        Escritorio: 5
-                                    </div>
-                                </div>
-                                <hr />
-                            </div>
-                            <div>
-                                <h2>No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <div className="bg-danger p-1 rounded-pill">
-                                        karim sabag
-                                    </div>
-                                    <div className="bg-success p-1 rounded-pill">
-                                        Escritorio: 5
-                                    </div>
-                                </div>
-                                <hr />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-4 border-start">
-                        <div className="d-flex justify-content-center">
-                            <hr className="w-25" />
-                            <span className="fw-bold p-1">Historial</span>
-                            <hr className="w-25" />
-                        </div>
-                        <ul style={{ listStyle: "none" }}>
-                            <li>
-                                <h2>Ticket No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <p>
-                                        Agente:{" "}
-                                        <span className="bg-success p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                    <p>
-                                        En el escritorio:{" "}
-                                        <span className=" bg-danger p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                </div>
-                                <hr />
-                            </li>
-                            <li>
-                                <h2>Ticket No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <p>
-                                        Agente:{" "}
-                                        <span className="bg-success p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                    <p>
-                                        En el escritorio:{" "}
-                                        <span className=" bg-danger p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                </div>
-                                <hr />
-                            </li>
-                            <li>
-                                <h2>Ticket No. 33</h2>
-
-                                <div className="d-flex justify-content-between">
-                                    <p>
-                                        Agente:{" "}
-                                        <span className="bg-success p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                    <p>
-                                        En el escritorio:{" "}
-                                        <span className=" bg-danger p-1 rounded">
-                                            36
-                                        </span>
-                                    </p>
-                                </div>
-                                <hr />
-                            </li>
-                        </ul>
-                    </div>
+        <div className="grid grid-cols-3 gap-20">
+            <div className="grid justify-items-center gap-5 col-span-2">
+            <div className="flex flex-row w-full items-center">
+                    <hr className="w-full" />
+                    <h1 className="mx-1 whitespace-nowrap">Atendiendo al cliente</h1>
+                    <hr className="w-full" />
                 </div>
+                <ul className="grid gap-5 ">
+                    <li className="grid grid-cols-1">
+                        <h2 className="text-5xl">No. 33</h2>
+
+                        <div className="grid grid-cols-2 gap-4 my-2">
+                            <div className="text-2xl border px-1 bg-red-100 border-red-300">karim sabag</div>
+                            <div className="text-2xl border px-1 bg-red-100 border-red-300">Escritorio: 5</div>
+                        </div>
+                        <hr className="w-full" />
+                    </li>
+                    <li className="grid grid-cols-1">
+                        <h2 className="text-5xl">No. 33</h2>
+
+                        <div className="grid grid-cols-2 gap-4 my-2">
+                            <div className="text-2xl border px-1 bg-red-100 border-red-300">karim sabag</div>
+                            <div className="text-2xl border px-1 bg-red-100 border-red-300">Escritorio: 5</div>
+                        </div>
+                        <hr className="w-full" />
+                    </li>
+                </ul>
             </div>
-        </section>
+            <div className="grid justify-items-center gap-5">
+                <div className="flex flex-row w-full items-center">
+                    <hr className="w-full" />
+                    <h1 className="mx-1">Historial</h1>
+                    <hr className="w-full" />
+                </div>
+
+                <ul className="grid gap-5">
+                    <li className="grid grid-cols-1">
+                        <h2>Ticket No. 33</h2>
+
+                        <div className="grid grid-cols-2 gap-4 my-1">
+                            <div className="">
+                                Agente:{" "}
+                                <strong className="border px-1 bg-red-100 border-red-300">
+                                    Karim sabag
+                                </strong>
+                            </div>
+                            <div className="">
+                                En el escritorio:{" "}
+                                <strong className="border px-1 bg-red-100 border-red-300">
+                                    5
+                                </strong>
+                            </div>
+                        </div>
+                        <hr className="w-full" />
+                    </li>
+                    <li className="grid grid-cols-1">
+                        <h2>Ticket No. 33</h2>
+
+                        <div className="grid grid-cols-2 gap-4 m-1">
+                            <div className="">
+                                Agente:{" "}
+                                <strong className="border px-1 bg-red-100 border-red-300">
+                                    Karim sabag
+                                </strong>
+                            </div>
+                            <div className="">
+                                En el escritorio:{" "}
+                                <strong className="border px-1 bg-red-100 border-red-300">
+                                    5
+                                </strong>
+                            </div>
+                        </div>
+                        <hr className="w-full" />
+                    </li>
+                </ul>
+            </div>
+        </div>
     );
 };

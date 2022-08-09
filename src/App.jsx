@@ -6,7 +6,9 @@ import RouterApp from "./router/RouterApp";
 const App = () => {
     return (
         <Provider store={store}>
-            <RouterApp />
+            <div className="select-none">
+                <RouterApp />
+            </div>
         </Provider>
     );
 };

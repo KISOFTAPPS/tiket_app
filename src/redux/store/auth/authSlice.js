@@ -13,7 +13,17 @@ export const authSlice = createSlice({
             state.isAuthenticated = false;
             state.user = {};
         },
+        onLogin: (state, action) => {
+            state.isLoading = false;
+            state.isAuthenticated = true;
+            state.user = action.payload;
+        },
+        onLogout: (state) => {
+            state.isLoading = false;
+            state.isAuthenticated = false;
+            state.user = {};
+        }
     },
 });
 
-export const { onLoading } = authSlice.actions;
+export const { onLoading,onLogin,onLogout } = authSlice.actions;

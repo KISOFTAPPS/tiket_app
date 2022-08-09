@@ -1,77 +1,73 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useAuthStore } from "../hooks/useAuthStore";
 
 const signInSchema = Yup.object().shape({
-    usuario: Yup.string().required("Required"),
-    contraseña: Yup.string().required("Required"),
+    usuario: Yup.string()
+        .required("Required")
+        .matches(/^[aA-zZ\s]+$/, "Solo Letras"),
+    escritorio: Yup.number()
+        .typeError("you must specify a number")
+        .required("Required"),
 });
 
 export const Ingresar = () => {
+    const {startLogin} = useAuthStore();
+
     return (
-        <section className="w-100 bg-light rounded-start">
-            <div className="d-flex mt-5">
-                <div className="container bg-white p-4 shadow rounded" style={{ maxWidth: "500px" }}>
-                    <div className="text-center">
-                        <h1 className="display-6 fw-bolder">Inicia Sesion</h1>
+        <Formik
+            initialValues={{
+                usuario: "",
+                escritorio: "",
+            }}
+            validationSchema={signInSchema}
+            onSubmit={(values) => {
+                // same shape as initial values
+                startLogin(values)
+            }}
+        >
+            {({ errors, touched }) => (
+                <Form className="flex flex-col items-end space-y-4">
+                    <div className="self-center">
+                        <h1>Inicia Sesion</h1>
                     </div>
-                    <Formik
-                        initialValues={{
-                            usuario: "",
-                            contraseña: "",
-                        }}
-                        validationSchema={signInSchema}
-                        onSubmit={(values) => {
-                            // same shape as initial values
-                            console.log(values);
-                        }}
-                    >
-                        {({ errors, touched }) => (
-                            <Form>
-                                <div>
-                                    <label for="usuario" className="form-label fw-bold">
-                                        Usuario
-                                    </label>
-                                    <Field
-                                        id="usuario"
-                                        className="form-control mb-2"
-                                        name="usuario"
-                                        type="text"
-                                        style={{backgroundColor: "#8888"}}
-                                    />
-                                </div>
-                                <div>
-                                    <label
-                                        for="contraseña"
-                                        className="form-label fw-bold"
-                                    >
-                                        Contraseña
-                                    </label>
-                                    <Field
-                                        id="contraseña"
-                                        className="form-control mb-2"
-                                        name="contraseña"
-                                        type="password"
-                                        style={{backgroundColor: "#8888"}}
-                                    />
-                                    {/* {errors.email && touched.email ? (
+                    <div className="flex flex-row">
+                        <label className="mr-1" htmlFor="usuario">
+                            Usuario
+                        </label>
+                        <Field
+                            id="usuario"
+                            name="usuario"
+                            type="text"
+                            className="rounded h-9 w-60 bg-blue-100"
+                        />
+                    </div>
+                    <div className="flex flex-row">
+                        <label className="mr-1" htmlFor="escritorio">
+                            Escritorio
+                        </label>
+                        <Field
+                            id="escritorio"
+                            name="escritorio"
+                            type="text"
+                            className="rounded h-9 w-60 bg-blue-100"
+                        />
+                        {/* {errors.email && touched.email ? (
                             <div>{errors.email}</div>
                         ) : null} */}
-                                </div>
+                    </div>
 
-                                <div className="text-center">
-                                    <button
-                                        className="btn btn-dark"
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </button>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik>
-                </div>
-            </div>
-        </section>
+                    <div className="self-center">
+                        <button
+                            type="submit"
+                            className="rounded bg-blue-900 active:bg-blue-400 p-1 text-white font-medium duration-200 shadow-lg"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </Form>
+            )}
+        </Formik>
     );
 };

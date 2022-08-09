@@ -1,26 +1,48 @@
 import { useSelector, useDispatch } from "react-redux";
-import { onLoading } from "../redux";
+import { onLoading, onLogin, onLogout } from "../redux";
 
 export const useAuthStore = () => {
-    const { status, user } = useSelector((state) => state.auth);
+    const { isLoading, isAuthenticated, user } = useSelector(
+        (state) => state.auth
+    );
     const dispatch = useDispatch();
 
     //Funciones para el dispatch
 
-    const startLogin = async () => {
+    const startLogin = ({ usuario, escritorio }) => {
         dispatch(onLoading());
-        try {
-        } 
-        catch (error) {
 
-        }
+        dispatch(onLogin({ usuario: usuario, escritorio: escritorio }));
+        localStorage.setItem("usuario", usuario);
+        localStorage.setItem("escritorio", escritorio);
+        try {
+        } catch (error) {}
+    };
+
+    const chequinAuth = () => {
+        const usuario = localStorage.getItem("usuario");
+        const escritorio = localStorage.getItem("escritorio");
+        if (!usuario || !escritorio) return dispatch(onLogout());
+
+        console.log(usuario, escritorio);
+        dispatch(onLogin({ usuario: usuario, escritorio: escritorio }));
+    };
+
+    const startLogout = () => {
+        dispatch(onLogout());
+        localStorage.clear();
     };
 
     return {
         //* Propiedades
-        status,
+        isLoading,
+        isAuthenticated,
         user,
 
         //* Metodos
+        startLogin,
+        startLogout,
+        chequinAuth,
+        
     };
 };

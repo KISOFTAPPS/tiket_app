@@ -1,8 +1,11 @@
 export const Footer = () => {
-  return (
-    <div className="d-flex justify-content-center align-items-center bg-dark text-white pe-2" style={{height:"50px"}}>
-      <p className="fw-bolder m-2">©KISOFT</p>
-      <hr className="vw-100" />
-    </div>
-  )
-}
+    return (
+        <div
+            className="flex flex-row bg-blue-900 text-white items-center px-1 w-screen"
+            style={{ height: "50px" }}
+        >
+            <p className="justify-self-center">©KISOFT</p>
+            <hr className="w-full" />
+        </div>
+    );
+};

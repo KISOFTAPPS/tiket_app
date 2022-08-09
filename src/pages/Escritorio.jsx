@@ -1,41 +1,44 @@
 import React from "react";
+import { useAuthStore } from "../hooks/useAuthStore";
 
 export const Escritorio = () => {
+    const {user,startLogout} = useAuthStore();
+    
+
     return (
-        <section className="w-100 bg-light rounded-start p-4">
-            <div className="container bg-white h-100 shadow rounded pt-5">
-                <div className="d-flex">
-                    <div className="w-100">
-                        <h1>
-                            Usuario: <strong>KARIM</strong>
+            <div className="w-full flex flex-col">
+                <div className="flex justify-between my-1">
+                    <div className="">
+                        <h1 className="text-4xl my-1">
+                            Usuario: <strong>{user.usuario}</strong>
                         </h1>
                         <p>
                             Usted esta trabajando en el escritorio:{" "}
-                            <strong className="text-success">5</strong>
+                            <strong className="text-green-700">{user.escritorio}</strong>
                         </p>
                     </div>
                     <button
-                        className="btn btn-danger align-items-end mt-2"
+                        className="rounded bg-red-900 active:bg-red-400 p-1 text-white font-medium duration-200 shadow-lg"
                         style={{ width: "100px", height: "50px" }}
+                        onClick={startLogout}
                     >
                         Salir
                     </button>
                 </div>
                 <hr />
-                <div className="d-flex">
-                    <div className="w-100">
+                <div className="flex justify-between my-1">
+                    <div className="">
                         <p>
-                           Esta entrando el ticket numero: <strong className="display-5 text-danger">5</strong>
+                           Esta entrando el ticket numero: <strong className="text-4xl text-red-700">55</strong>
                         </p>
                     </div>
                     <button
-                        className="btn btn-success align-items-end mt-2"
+                        className="rounded bg-blue-900 active:bg-blue-400 p-1 text-white font-medium duration-200 shadow-lg"
                         style={{ width: "120px", height: "50px" }}
                     >
                         Siguiente >
                     </button>
                 </div>
             </div>
-        </section>
     );
 };
